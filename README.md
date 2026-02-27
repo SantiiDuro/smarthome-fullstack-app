@@ -43,7 +43,7 @@ git clone https://github.com/SantiiDuro/smarthome-fullstack-app.git
 
 2. Follow the setup instructions available in the project documentation (includes installation and usage instructions):
 
-[Project Documentation](./Entregas%20Obligatorio%202/Documentacion/DOCUMENTACIÓN%20OBL%202%20DISEÑO.pdf)
+[Project Documentation](./Entregas%20Obligatorio%202/Documentacion/documentacion-obl2-diseno.pdf)
 
 ## Notes
 
