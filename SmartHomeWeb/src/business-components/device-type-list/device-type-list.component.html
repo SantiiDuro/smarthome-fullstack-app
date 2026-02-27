@@ -1,0 +1,16 @@
+<div *ngIf="status.loading; else finishLoading">
+    Cargando tipos de dispositivos...
+</div>
+
+<ng-template #finishLoading>
+<div *ngIf="status.error; else showList">
+    <p class="text-danger">{{ status.error }}</p>
+</div>
+<ng-template #showList>
+    <app-list
+    [items]="status.devicesTypes"
+    [emptyMessage]="'No hay tipos de dispositivos registrados'"
+    title="Tipos de Dispositivos Soportados">
+    </app-list>
+</ng-template>
+</ng-template>

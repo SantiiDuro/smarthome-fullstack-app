@@ -1,0 +1,23 @@
+<div *ngIf="status.loading; else finishLoading">
+    Cargando cuartos del hogar...
+</div>
+
+<ng-template #finishLoading>
+<div *ngIf="status.error; else showDropdown">
+    <p>{{ status.error }}</p>
+</div>
+
+<ng-template #showDropdown>
+    <app-form-dropdown
+    [options]="status.rooms"
+    [(value)]="value"
+    (valueChange)="onValueChange($event)"
+    label="Cuartos del Hogar"
+    placeholder="Selecciona un cuarto"
+    emptyMessage="No hay cuartos"
+    [name]="name"
+    [form]="form"
+    [formField]="formField">
+    </app-form-dropdown>
+</ng-template>
+</ng-template>

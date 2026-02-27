@@ -1,0 +1,21 @@
+<app-form [form]="photoForm" (onSubmit)="addPhoto()" containerClass="min-vh-0">
+    <app-form-input 
+        type="text" 
+        placeholder="Url de la fotografía"
+        label="Fotografía Secundaria"
+        [name]="formField.url.name" 
+        [form]="photoForm"
+        [formField]="formField" />
+
+    <div class="d-flex align-items-center">
+        <app-form-button title="Añadir" />
+    </div>  
+
+    <app-list 
+        *ngIf="items.length > 0" 
+        [items]="items" 
+        title="Fotografías Secundarias:" 
+        emptyMessage="No hay fotografías secundarias para mostrar"
+        class="mt-3">
+    </app-list>
+</app-form>

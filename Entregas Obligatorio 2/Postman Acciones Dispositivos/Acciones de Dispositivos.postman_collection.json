@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "76ef2bcf-2a44-45fe-a53f-a9ddb869a055",
+		"name": "Acciones de Dispositivos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38542715"
+	},
+	"item": [
+		{
+			"name": "sensor abre",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/dispositivos-hogar/{{idDispositivoHogar}}/abrir",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"dispositivos-hogar",
+						"{{idDispositivoHogar}}",
+						"abrir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sensor cierra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/dispositivos-hogar/{{idDispositivoHogar}}/cerrar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"dispositivos-hogar",
+						"{{idDispositivoHogar}}",
+						"cerrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sensor movimiento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/dispositivos-hogar/{{idDispositivoHogar}}/movimiento-sensor",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"dispositivos-hogar",
+						"{{idDispositivoHogar}}",
+						"movimiento-sensor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "camara persona",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/dispositivos-hogar/{{idDispositivoHogar}}/persona",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"dispositivos-hogar",
+						"{{idDispositivoHogar}}",
+						"persona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "camara movimiento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/dispositivos-hogar/{{idDispositivoHogar}}/movimiento-camara",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"dispositivos-hogar",
+						"{{idDispositivoHogar}}",
+						"movimiento-camara"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lampara enciende",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/dispositivos-hogar/{{idDispositivoHogar}}/encender",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"dispositivos-hogar",
+						"{{idDispositivoHogar}}",
+						"encender"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lampara apaga",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/dispositivos-hogar/{{idDispositivoHogar}}/apagar",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"dispositivos-hogar",
+						"{{idDispositivoHogar}}",
+						"apagar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

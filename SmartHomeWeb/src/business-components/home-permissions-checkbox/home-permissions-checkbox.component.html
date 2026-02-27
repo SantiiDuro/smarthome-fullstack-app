@@ -1,0 +1,8 @@
+<label> {{ label }} </label>
+<div>
+    <app-checkbox label="Asociar Dispositivos" [(isChecked)]="permisoAsociarDispositivos" (isCheckedChange)="checkOptions()"></app-checkbox>
+    <app-checkbox label="Listar Dispositivos" [(isChecked)]="permisoListarDispositivos" (isCheckedChange)="checkOptions()"></app-checkbox>
+    <app-checkbox label="Recibir Notificaciones" [(isChecked)]="permisoNotificaciones" (isCheckedChange)="checkOptions()"></app-checkbox>
+    <app-checkbox label="Administrar Cuartos" [(isChecked)]="perimsoAdministrarCuartos" (isCheckedChange)="checkOptions()"></app-checkbox>
+    <app-checkbox label="Modificar Nombres de Dispositivos" [(isChecked)]="permisoModificarNombreDispositivos" (isCheckedChange)="checkOptions()"></app-checkbox>
+</div>

@@ -1,0 +1,9 @@
+<div style="min-width: 300px;">
+  <label class="form-label">{{ label }}</label>
+  <input
+  class="form-control"
+    [placeholder]="placeholder"
+    [type]="type"
+    [value]="value"
+    (input)="onValueChange($event)" />
+</div>

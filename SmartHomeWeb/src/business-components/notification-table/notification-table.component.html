@@ -1,0 +1,44 @@
+<app-form [form]="filterForm" (onSubmit)="onFilterSubmit()" containerClass="min-vh-30">
+    <app-form-input
+      type="text"
+      placeholder="Filtrar por tipo de dispositivo"
+      label="Tipo de dispositivo"
+      [form]="filterForm"
+      [name]="formField.tipoDispositivo.name"
+      [formField]="formField">
+    </app-form-input>
+    
+    <app-form-input
+      type="date"
+      placeholder="Filtrar por fecha"
+      label="Fecha de creacion"
+      [form]="filterForm"
+      [name]="formField.fechaDeCreacion.name"
+      [formField]="formField">
+    </app-form-input>
+
+    <app-bool-dropdown
+      [(value)]="selectedBool"
+      [name]="formField.leida.name"
+      [form]="filterForm"
+      [formField]="formField">
+    </app-bool-dropdown>
+  
+    <div class="d-flex justify-content-center"> 
+      <app-form-button title="Filtrar"></app-form-button>
+    </div>
+</app-form>
+  
+<app-table 
+  [tableHeaders]="['Evento', 'Dispositivo', 'Leída', 'Fecha']" 
+  [tableColumns]="['evento', 'nombreDispositivoHogar', 'fueLeida', 'fechaHora']" 
+  [items]="notifications"
+  [emptyMessage]="'No hay notificaciones'">
+</app-table>
+
+<div class="d-flex align-items-center">
+  <app-button
+    title="Marcar como leídas"
+    (onClick)="markAsRead()">
+  </app-button>
+</div>

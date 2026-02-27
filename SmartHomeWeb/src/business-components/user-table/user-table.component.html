@@ -1,0 +1,37 @@
+<app-form [form]="filterForm" (onSubmit)="onFilterSubmit()" containerClass="min-vh-30">
+    <app-form-input
+      type="text"
+      placeholder="Filtrar por rol del usuario"
+      label="Rol del usuario"
+      [form]="filterForm"
+      [name]="formField.rol.name"
+      [formField]="formField">
+    </app-form-input>
+    
+    <app-form-input
+      type="text"
+      placeholder="Filtrar por nombre completo del usuario"
+      label="Nombre completo del usuario"
+      [form]="filterForm"
+      [name]="formField.nombreCompleto.name"
+      [formField]="formField">
+    </app-form-input>
+  
+    <div class="d-flex justify-content-center"> 
+      <app-form-button title="Filtrar"></app-form-button>
+    </div>
+  </app-form>
+    
+  <app-table 
+    [tableHeaders]="['Nombre', 'Apellido', 'Nombre Completo', 'Email', 'Rol', 'Fecha Creación']" 
+    [tableColumns]="['nombre', 'apellido', 'nombreCompleto', 'email', 'tipoRol', 'fechaCreacion']" 
+    [items]="users"
+    [emptyMessage]="'No hay usuarios'">
+  </app-table>
+    
+  <div class="d-flex align-items-center justify-content-around">
+      <button class="btn btn-secondary" (click)="goToPreviousPage()" [disabled]="currentPage === 1">Anterior</button>
+      <span>Página {{ currentPage }} de {{ totalPages }}</span>
+      <button class="btn btn-secondary" (click)="goToNextPage()" [disabled]="totalPages <= currentPage">Siguiente</button>
+  </div>
+  

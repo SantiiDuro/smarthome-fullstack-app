@@ -1,0 +1,30 @@
+<app-form [form]="loginForm" (onSubmit)="onSubmit($event)" title="Bienvenido a SmartHome">
+  <app-form-input
+    type="text"
+    placeholder="email@example.com"
+    label="Email"
+    [name]="formField.email.name"
+    [form]="loginForm"
+    [formField]="formField" />
+
+  <app-form-input
+    type="password"
+    placeholder="*****"
+    label="Contraseña"
+    [name]="contrasenaField.name"
+    [form]="loginForm"
+    [formField]="formField" />
+
+  <div *ngIf="loginStatus?.loading; else notLoading">Cargando...</div>
+
+  <ng-template #notLoading>
+    <div *ngIf="loginStatus?.error" [ngStyle]="{ color: 'var(--bs-form-invalid-color)' }">
+      {{ loginStatus!.error }}
+    </div>
+    
+    <div class="d-flex align-items-center">
+      <app-form-button title="Iniciar Sesión" />
+      <a routerLink="/" class="text-primary ms-2" style="cursor: pointer;">Cancelar</a>
+    </div>
+  </ng-template>
+</app-form>

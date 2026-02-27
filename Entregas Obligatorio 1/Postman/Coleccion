@@ -1,0 +1,2189 @@
+{
+	"info": {
+		"_postman_id": "8f0fe108-b74b-4d31-8cb9-e14952be73b6",
+		"name": "ObligatorioDA2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38542715"
+	},
+	"item": [
+		{
+			"name": "Administradores",
+			"item": [
+				{
+					"name": "crear administrador",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"pepe\",\r\n    \"apellido\": \"gomez\",\r\n    \"email\": \"pepe@gmail.com\",\r\n    \"contraseña\": \"pepe1234.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/administradores",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"administradores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrar administrador",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/administradores/{{emailAdmin}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"administradores",
+								"{{emailAdmin}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CrearDispositivos",
+			"item": [
+				{
+					"name": "crear sensor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"sensor460h\",\r\n    \"numeroModelo\": 1,\r\n    \"descripcion\": \"sensor de ventana\",\r\n    \"fotografias\": [{\r\n        \"url\": \"descargas/fotoSensor\",\r\n        \"esPrincipal\": true\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/sensores",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"sensores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear camara",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"cam300\",\r\n    \"numeroModelo\": 1,\r\n    \"descripcion\": \"camara nueva\",\r\n    \"fotografias\": [\r\n        {\r\n            \"url\": \"fotografia/camara\",\r\n            \"esPrincipal\": true\r\n        }\r\n    ],\r\n    \"detectaMovimiento\": false,\r\n    \"detectaPersona\": true,\r\n    \"usoExterior\": false,\r\n    \"usoInterior\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/camaras",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"camaras"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sesiones",
+			"item": [
+				{
+					"name": "autenticacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\",\r\n    \"contraseña\": \"admin1234.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/autenticaciones",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"autenticaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "desautenticacion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/desautenticaciones",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"desautenticaciones"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dispositivos",
+			"item": [
+				{
+					"name": "dispositivos soportados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dispositivosSoportados",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dispositivosSoportados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dispositivos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dispositivos?numeroDePagina=1&tamañoDePagina=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dispositivos"
+							],
+							"query": [
+								{
+									"key": "numeroDePagina",
+									"value": "1"
+								},
+								{
+									"key": "tamañoDePagina",
+									"value": "10"
+								},
+								{
+									"key": "nombreDispositivo",
+									"value": "nombre",
+									"disabled": true
+								},
+								{
+									"key": "numeroModelo",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "nombreEmpresa",
+									"value": "empresa",
+									"disabled": true
+								},
+								{
+									"key": "tipoDispositivo",
+									"value": "camara",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DispositivosHogar",
+			"item": [
+				{
+					"name": "sensor abre",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dispositivosHogar/{{idDispositivoHogar}}/abrir",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dispositivosHogar",
+								"{{idDispositivoHogar}}",
+								"abrir"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sensor cierra",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dispositivosHogar/{{idDispositivoHogar}}/cerrar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dispositivosHogar",
+								"{{idDispositivoHogar}}",
+								"cerrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "camara movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dispositivosHogar/{{idDispositivoHogar}}/movimiento",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dispositivosHogar",
+								"{{idDispositivoHogar}}",
+								"movimiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "camara persona",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/dispositivosHogar/{{idDispositivoHogar}}/persona",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dispositivosHogar",
+								"{{idDispositivoHogar}}",
+								"persona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dispositivo en linea",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dispositivosHogar/{{idDispositivoHogar}}/conectar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dispositivosHogar",
+								"{{idDispositivoHogar}}",
+								"conectar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dispositivo no en linea",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/dispositivosHogar/{{idDispositivoHogar}}/desconectar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dispositivosHogar",
+								"{{idDispositivoHogar}}",
+								"desconectar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Empresas",
+			"item": [
+				{
+					"name": "crear dueño empresa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"alan\",\r\n    \"apellido\": \"perez\",\r\n    \"email\": \"pepe@gmail.com\",\r\n    \"contraseña\": \"pepe1234.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dueñosEmpresa",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dueñosEmpresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear empresa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"smart devices\",\r\n    \"logotipo\": \"/descargas/logo\",\r\n    \"rut\": \"e481ka\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/empresas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"empresas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empresas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/empresas?numeroDePagina=1&tamañoDePagina=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"empresas"
+							],
+							"query": [
+								{
+									"key": "numeroDePagina",
+									"value": "1"
+								},
+								{
+									"key": "tamañoDePagina",
+									"value": "10"
+								},
+								{
+									"key": "nombreEmpresa",
+									"value": "empresa",
+									"disabled": true
+								},
+								{
+									"key": "nombreCompletoDueño",
+									"value": "nombre apellido",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hogares",
+			"item": [
+				{
+					"name": "crear dueño hogar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"coco\",\r\n    \"apellido\": \"sanz\",\r\n    \"email\": \"coco@gmail.com\",\r\n    \"contraseña\": \"coco1234.\",\r\n    \"fotoPerfil\": \"fotos/yo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/dueñosHogar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"dueñosHogar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear hogar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"calle\": \"rivera\",\r\n    \"NumPuerta\": 1234,\r\n    \"Latitud\": 10,\r\n    \"Longitud\": -80,\r\n    \"CantMiembrosSoportados\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/hogares",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"hogares"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "asociar dispositivo a hogar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dispositivoId\": \"id\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/hogares/{{idHogar}}/dispositivos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"hogares",
+								"{{idHogar}}",
+								"dispositivos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "agregar miembro a hogar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mica@gmail.com\",\r\n    \"permisoAsociarDispositivos\": true,\r\n    \"permisoListarDispositivos\": true,\r\n    \"permisoNotificaciones\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/hogares/{{idHogar}}/miembros",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"hogares",
+								"{{idHogar}}",
+								"miembros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar miembros hogar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/hogares/{{idHogar}}/miembros",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"hogares",
+								"{{idHogar}}",
+								"miembros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar dispositivos hogar",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/hogares/{{idHogar}}/dispositivos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"hogares",
+								"{{idHogar}}",
+								"dispositivos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "usuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/usuarios?numeroDePagina=1&tamañoDePagina=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							],
+							"query": [
+								{
+									"key": "numeroDePagina",
+									"value": "1"
+								},
+								{
+									"key": "tamañoDePagina",
+									"value": "10"
+								},
+								{
+									"key": "rol",
+									"value": "administrador",
+									"disabled": true
+								},
+								{
+									"key": "nombreCompleto",
+									"value": "nombre apellido",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notificaciones",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/notificaciones",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"notificaciones"
+							],
+							"query": [
+								{
+									"key": "tipoDispositivo",
+									"value": "camara",
+									"disabled": true
+								},
+								{
+									"key": "fechaDeCreacion",
+									"value": "mm/dd/aaaa",
+									"disabled": true
+								},
+								{
+									"key": "leida",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DatosInvalidos",
+			"item": [
+				{
+					"name": "MantenimientoAdministradores",
+					"item": [
+						{
+							"name": "crear nombre vacio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"\",\r\n    \"apellido\": \"gomez\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"contraseña\": \"pepe1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear nombre null",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": null,\r\n    \"apellido\": \"gomez\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"contraseña\": \"pepe1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear apellido vacio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": \"\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"contraseña\": \"pepe1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear apellido null",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": null,\r\n    \"email\": \"email@gmail.com\",\r\n    \"contraseña\": \"pepe1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear email vacio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": \"perez\",\r\n    \"email\": \"\",\r\n    \"contraseña\": \"pepe1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear email null",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": \"perez\",\r\n    \"email\": null,\r\n    \"contraseña\": \"pepe1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear email sin arroba",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": \"perez\",\r\n    \"email\": \"gmail.com\",\r\n    \"contraseña\": \"pepe1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear email sin dominio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": \"perez\",\r\n    \"email\": \"email@gmail\",\r\n    \"contraseña\": \"pepe1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear contraseña vacia",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": \"perez\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"contraseña\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear contraseña null",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": \"perez\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"contraseña\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear contraseña menor a 6 caracteres",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": \"perez\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"contraseña\": \"hola.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear contraseña sin caracter especial",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"juan\",\r\n    \"apellido\": \"perez\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"contraseña\": \"contraseña\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear body vacio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear admin valido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"adminNuevo\",\r\n    \"apellido\": \"perez\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"contraseña\": \"email1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear admin email repetido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"adminNuevo\",\r\n    \"apellido\": \"perez\",\r\n    \"email\": \"email@gmail.com\",\r\n    \"contraseña\": \"email1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/administradores",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "borrar email no existente",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/administradores/invalido@gmail.com",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"administradores",
+										"invalido@gmail.com"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "creacion empresa",
+					"item": [
+						{
+							"name": "crear dueño empresa valido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"dueñoEmpresa\",\r\n    \"apellido\": \"1\",\r\n    \"email\": \"de1@gmail.com\",\r\n    \"contraseña\": \"de1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/dueñosEmpresa",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dueñosEmpresa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "autenticacion con de valido Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"de1@gmail.com\",\r\n    \"contraseña\": \"de1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/autenticaciones",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"autenticaciones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear nombre vacio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"\",\r\n    \"logotipo\": \"/descargas/logo\",\r\n    \"rut\": \"rutNuevo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/empresas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"empresas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear nombre null",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": null,\r\n    \"logotipo\": \"/descargas/logo\",\r\n    \"rut\": \"rutNuevo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/empresas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"empresas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear logotipo vacio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"nombreEmpresa\",\r\n    \"logotipo\": \"\",\r\n    \"rut\": \"rutNuevo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/empresas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"empresas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear logotipo null",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"nombreEmpresa\",\r\n    \"logotipo\": null,\r\n    \"rut\": \"rutNuevo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/empresas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"empresas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear rut vacio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"nombreEmpresa\",\r\n    \"logotipo\": \"logo\",\r\n    \"rut\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/empresas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"empresas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear rut null",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"nombreEmpresa\",\r\n    \"logotipo\": \"logo\",\r\n    \"rut\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/empresas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"empresas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear body vacio",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/empresas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"empresas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear empresa valido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"empresaNueva\",\r\n    \"logotipo\": \"/descargas/logo\",\r\n    \"rut\": \"rutempresa\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/empresas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"empresas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "no puede crear otra empresa",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"otraEmpresa\",\r\n    \"logotipo\": \"/descargas/logo\",\r\n    \"rut\": \"otroRut\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/empresas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"empresas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "asociar dispositivos y deteccion movimiento",
+					"item": [
+						{
+							"name": "crear dueño empresa valido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"dueñoEmpresa\",\r\n    \"apellido\": \"2\",\r\n    \"email\": \"de2@gmail.com\",\r\n    \"contraseña\": \"de1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/dueñosEmpresa",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dueñosEmpresa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "autenticacion con de valido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"de2@gmail.com\",\r\n    \"contraseña\": \"de1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/autenticaciones",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"autenticaciones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear empresa valido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"empresa\",\r\n    \"logotipo\": \"/descargas/logo\",\r\n    \"rut\": \"rutotraempresa\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/empresas",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"empresas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear camara movimiento valido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"camaraPrueba\",\r\n    \"numeroModelo\": 1,\r\n    \"descripcion\": \"camara nueva\",\r\n    \"fotografias\": [\r\n        {\r\n            \"url\": \"fotografia/camara\",\r\n            \"esPrincipal\": true\r\n        }\r\n    ],\r\n    \"detectaMovimiento\": true,\r\n    \"detectaPersona\": true,\r\n    \"usoExterior\": false,\r\n    \"usoInterior\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/camaras",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"camaras"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear camara sin movimiento valido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"camaraPrueba\",\r\n    \"numeroModelo\": 2,\r\n    \"descripcion\": \"camara nueva\",\r\n    \"fotografias\": [\r\n        {\r\n            \"url\": \"fotografia/camara\",\r\n            \"esPrincipal\": true\r\n        }\r\n    ],\r\n    \"detectaMovimiento\": false,\r\n    \"detectaPersona\": true,\r\n    \"usoExterior\": false,\r\n    \"usoInterior\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/camaras",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"camaras"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear dueño hogar valido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"dueñoNuevo\",\r\n    \"apellido\": \"dueño\",\r\n    \"email\": \"dueño@gmail.com\",\r\n    \"contraseña\": \"dueño1234.\",\r\n    \"fotoPerfil\": \"fotos/yo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/dueñosHogar",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dueñosHogar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear miembro hogar valido Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nombre\": \"miembroNuevo\",\r\n    \"apellido\": \"miembro\",\r\n    \"email\": \"miembro@gmail.com\",\r\n    \"contraseña\": \"miembro1234.\",\r\n    \"fotoPerfil\": \"fotos/yo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/dueñosHogar",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dueñosHogar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "autenticacion dueño hogar valido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"dueño@gmail.com\",\r\n    \"contraseña\": \"dueño1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/autenticaciones",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"autenticaciones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "crear hogar valido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"calle\": \"hogarNuevo\",\r\n    \"NumPuerta\": 1234,\r\n    \"Latitud\": 10,\r\n    \"Longitud\": -80,\r\n    \"CantMiembrosSoportados\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/hogares",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"hogares"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "asociar dispositivo no existente",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dispositivoId\": \"idNoExistente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/hogares/{{idHogar}}/dispositivos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"hogares",
+										"{{idHogar}}",
+										"dispositivos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "asociar miembro valido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"miembro@gmail.com\",\r\n    \"permisoAsociarDispositivos\": true,\r\n    \"permisoListarDispositivos\": true,\r\n    \"permisoNotificaciones\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/hogares/{{idHogar}}/miembros",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"hogares",
+										"{{idHogar}}",
+										"miembros"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "autenticacion miembro hogar valido",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"miembro@gmail.com\",\r\n    \"contraseña\": \"miembro1234.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/autenticaciones",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"autenticaciones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "miembro asocia dispositivo no existente",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dispositivoId\": \"idNoExistente\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/hogares/{{idHogar}}/dispositivos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"hogares",
+										"{{idHogar}}",
+										"dispositivos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "miembro asocia camara con movimiento valido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dispositivoId\": \"incluir id valido de la camara con deteccion de movimiento\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/hogares/{{idHogar}}/dispositivos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"hogares",
+										"{{idHogar}}",
+										"dispositivos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "miembro asocia camara sin movimiento valido",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dispositivoId\": \"incluir id valido de la camara sin deteccion de movimiento\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/hogares/{{idHogar}}/dispositivos",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"hogares",
+										"{{idHogar}}",
+										"dispositivos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "miembro desconecta camara con movimiento",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/dispositivosHogar/{{idDispositivoHogar}}/desconectar",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dispositivosHogar",
+										"{{idDispositivoHogar}}",
+										"desconectar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "camara con movimiento desactivada no puede detectar movimiento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dispositivosHogar/{{idDispositivoHogar}}/movimiento",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dispositivosHogar",
+										"{{idDispositivoHogar}}",
+										"movimiento"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "camara sin movimiento activada no puede detectar movimiento",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dispositivosHogar/{{idDispositivoHogar}}/movimiento",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dispositivosHogar",
+										"{{idDispositivoHogar}}",
+										"movimiento"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

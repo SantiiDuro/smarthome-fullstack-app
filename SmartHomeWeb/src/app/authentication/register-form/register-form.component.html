@@ -1,0 +1,54 @@
+<app-form [form]="registerForm" (onSubmit)="onSubmit($event)" title="Bienvenido a SmartHome">
+    <app-form-input
+        type="text"
+        placeholder="nombre"
+        label="Nombre"
+        [name]="formField.nombre.name"
+        [form]="registerForm"
+        [formField]="formField" />
+
+    <app-form-input
+        type="text"
+        placeholder="apellido"
+        label="Apellido"
+        [name]="formField.apellido.name"
+        [form]="registerForm"
+        [formField]="formField" />
+
+    <app-form-input
+        type="text"
+        placeholder="email@example.com"
+        label="Email"
+        [name]="formField.email.name"
+        [form]="registerForm"
+        [formField]="formField" />
+
+    <app-form-input
+        type="password"
+        placeholder="*****"
+        label="Contraseña"
+        [name]="contrasenaField.name"
+        [form]="registerForm"
+        [formField]="formField" />
+
+    <app-form-input
+        type="text"
+        placeholder="imagen.png"
+        label="Foto de perfil"
+        [name]="formField.fotoPerfil.name"
+        [form]="registerForm"
+        [formField]="formField" />
+
+    <div *ngIf="registerStatus?.loading; else notLoading">Cargando...</div>
+
+    <ng-template #notLoading>
+        <div *ngIf="registerStatus?.error" [ngStyle]="{ color: 'var(--bs-form-invalid-color)' }">
+            {{ registerStatus!.error }}
+        </div>
+        
+        <div class="d-flex align-items-center">
+            <app-form-button title="Registrarse" />
+            <a routerLink="/" class="text-primary ms-2" style="cursor: pointer;">Cancelar</a>
+        </div>
+    </ng-template>
+</app-form>

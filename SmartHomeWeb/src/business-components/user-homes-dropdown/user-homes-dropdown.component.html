@@ -1,0 +1,20 @@
+<div *ngIf="status.loading; else finishLoading">
+    Cargando hogares...
+</div>
+
+<ng-template #finishLoading>
+<div *ngIf="status.error; else showDropdown">
+    <p>{{ status.error }}</p>
+</div>
+
+<ng-template #showDropdown>
+    <app-dropdown
+    [options]="status.homes"
+    [(value)]="value"
+    (valueChange)="onValueChange($event)"
+    label="Hogares"
+    placeholder="Selecciona un hogar"
+    emptyMessage="No hay hogares">
+    </app-dropdown>
+</ng-template>
+</ng-template>

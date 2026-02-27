@@ -1,0 +1,6 @@
+<app-table
+    [tableHeaders]="['Nombre Completo', 'Email', 'Foto de Perfíl', 'Asociar Dispositivos', 'Listar Dispositivos', 'Administrar Cuartos', 'Modificar Nombre Dispositivos', 'Recibe Notificaciones' ]"
+    [tableColumns]="['nombreCompleto', 'email', 'fotoPerfil', 'tienePermisoAsociarDispositivos', 'tienePermisoListarDispositivos', 'tienePermisoAdministrarCuartos', 'tienePermisoModificarNombreDispositivos', 'recibeNotificaciones']"
+    [items]="members"
+    [emptyMessage]="'No hay miembros'"></app-table>
+

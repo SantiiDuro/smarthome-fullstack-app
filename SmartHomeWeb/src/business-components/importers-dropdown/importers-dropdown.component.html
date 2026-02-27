@@ -1,0 +1,23 @@
+<div *ngIf="status.loading; else finishLoading">
+    Cargando importadores...
+</div>
+
+<ng-template #finishLoading>
+<div *ngIf="status.error; else showDropdown">
+    <p>{{ status.error }}</p>
+</div>
+
+<ng-template #showDropdown>
+    <app-form-dropdown
+    [options]="status.importers"
+    [(value)]="value"
+    (valueChange)="onValueChange($event)"
+    label="Importador"
+    placeholder="Selecciona un importador"
+    emptyMessage="No hay importadores"
+    [name]="name"
+    [form]="form"
+    [formField]="formField">
+    </app-form-dropdown>
+</ng-template>
+</ng-template>

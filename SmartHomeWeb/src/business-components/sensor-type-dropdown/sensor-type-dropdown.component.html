@@ -1,0 +1,13 @@
+<div class="w-100">
+    <app-form-dropdown
+        [options]="types"
+        [(value)]="value"
+        (valueChange)="onValueChange($event)"
+        label="Tipo de sensor"
+        placeholder="Selecciona un tipo"
+        emptyMessage="No hay tipos de sensor"
+        [name]="name"
+        [form]="form"
+        [formField]="formField">
+    </app-form-dropdown>
+</div>

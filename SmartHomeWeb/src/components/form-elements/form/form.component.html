@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-center align-items-{{ verticalAlign }} {{ containerClassWithDefault }}">
+  <div class="text-center" style="max-width: 400px;">
+    <h1 *ngIf="title">{{ title }}</h1>
+    <form [formGroup]="form" (ngSubmit)="onLocalSubmit()">
+      <ng-content></ng-content>
+    </form>
+  </div>
+</div>
+

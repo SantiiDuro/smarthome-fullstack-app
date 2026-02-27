@@ -1,0 +1,22 @@
+<app-form [form]="deleteAdminForm" (onSubmit)="onSubmit($event)" title="Eliminar Administrador">
+    <app-form-input
+      type="text"
+      placeholder="email@example.com"
+      label="Email"
+      [name]="formField.email.name"
+      [form]="deleteAdminForm"
+      [formField]="formField" />
+  
+    <div *ngIf="deleteStatus?.loading; else notLoading">Cargando...</div>
+  
+    <ng-template #notLoading>
+      <div *ngIf="deleteStatus?.error" [ngStyle]="{ color: 'var(--bs-form-invalid-color)' }">
+        {{ deleteStatus!.error }}
+      </div>
+      
+      <div class="d-flex align-items-center">
+        <app-form-button title="Eliminar" />
+        <a routerLink="/" class="text-primary ms-2" style="cursor: pointer;">Cancelar</a>
+      </div>
+    </ng-template>
+  </app-form>

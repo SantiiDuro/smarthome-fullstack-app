@@ -1,0 +1,11 @@
+<app-dropdown
+    [options]="options"
+    [label]="label"
+    [placeholder]="placeholder"
+    [emptyMessage]="emptyMessage"
+    [(value)]="value"
+    (valueChange)="onValueChange($event)">
+</app-dropdown>
+<small *ngIf="error" [ngStyle]="{ color: 'var(--bs-form-invalid-color)' }">
+    {{ error }}
+</small>  

@@ -1,0 +1,21 @@
+<app-form [form]="filterForm" (onSubmit)="onFilterSubmit()" containerClass="min-vh-30">
+    <app-form-input
+        type="text"
+        placeholder="Filtrar por nombre del cuarto"
+        label="Nombre del cuarto"
+        [form]="filterForm"
+        [name]="formField.nombreCuarto.name"
+        [formField]="formField">
+    </app-form-input>
+  
+    <div class="d-flex justify-content-center"> 
+        <app-form-button title="Filtrar"></app-form-button>
+    </div>
+</app-form>
+
+<app-table 
+    [tableHeaders]="['Nombre', 'Modelo', 'Fotografía Principal', 'Empresa', 'Conectado', 'Abierto', 'Encendida']" 
+    [tableColumns]="['nombre', 'modelo', 'fotoPrincipal', 'nombreEmpresa', 'estaConectado', 'estaAbierto', 'estaEncendida']" 
+    [items]="devices"
+    [emptyMessage]="'No hay dispositivos en el hogar'">
+</app-table>

@@ -1,0 +1,55 @@
+
+<app-form [form]="filterForm" (onSubmit)="onFilterSubmit()" containerClass="min-vh-30">
+    <app-form-input
+      type="text"
+      placeholder="Filtrar por nombre de dispositivo"
+      label="Nombre del dispositivo"
+      [form]="filterForm"
+      [name]="formField.nombreDispositivo.name"
+      [formField]="formField">
+    </app-form-input>
+    
+    <app-form-input
+      type="text"
+      placeholder="Filtrar por modelo del disposiitvo"
+      label="Modelo del Disposiitvo"
+      [form]="filterForm"
+      [name]="formField.modelo.name"
+      [formField]="formField">
+    </app-form-input>
+
+    <app-form-input
+      type="text"
+      placeholder="Filtrar por nombre de la empresa"
+      label="Nombre de la Empresa"
+      [form]="filterForm"
+      [name]="formField.nombreEmpresa.name"
+      [formField]="formField">
+    </app-form-input>
+
+    <app-form-input
+      type="text"
+      placeholder="Filtrar por el tipo de disposiitvo"
+      label="Tipo de Disposiitvo"
+      [form]="filterForm"
+      [name]="formField.tipoDispositivo.name"
+      [formField]="formField">
+    </app-form-input>
+  
+    <div class="d-flex justify-content-center"> 
+      <app-form-button title="Filtrar"></app-form-button>
+    </div>
+  </app-form>
+    
+  <app-table 
+    [tableHeaders]="['Nombre', 'Modelo', 'Descripción', 'Fotografía Principal', 'Empresa', 'Tipo']" 
+    [tableColumns]="['nombre', 'modelo', 'descripcion', 'fotoPrincipal', 'nombreEmpresa', 'tipo']" 
+    [items]="devices"
+    [emptyMessage]="'No hay dispositivos'">
+  </app-table>
+    
+  <div class="d-flex align-items-center justify-content-around">
+      <button class="btn btn-secondary" (click)="goToPreviousPage()" [disabled]="currentPage === 1">Anterior</button>
+      <span>Página {{ currentPage }} de {{ totalPages }}</span>
+      <button class="btn btn-secondary" (click)="goToNextPage()" [disabled]="totalPages <= currentPage">Siguiente</button>
+  </div>

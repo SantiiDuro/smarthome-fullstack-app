@@ -1,0 +1,12 @@
+<div class="w-100">
+    <app-form-dropdown
+        [options]="bools"
+        [(value)]="value"
+        (valueChange)="onValueChange($event)"
+        label="Leídas"
+        placeholder="Selecciona un valor"
+        [name]="name"
+        [form]="form"
+        [formField]="formField">
+    </app-form-dropdown>
+</div>

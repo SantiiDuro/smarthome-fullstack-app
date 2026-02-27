@@ -1,0 +1,50 @@
+<app-form [form]="createCameraForm" (onSubmit)="onSubmit()" title="Crear Cámara" [verticalAlign]="'start'">
+    <app-form-input
+        type="text"
+        placeholder="nombre"
+        label="Nombre"
+        [name]="formField.nombre.name"
+        [form]="createCameraForm"
+        [formField]="formField" />
+
+    <app-form-input
+        type="text"
+        placeholder="modelo"
+        label="Modelo"
+        [name]="formField.modelo.name"
+        [form]="createCameraForm"
+        [formField]="formField" />
+
+    <app-form-input
+        type="text"
+        placeholder="descripcion"
+        label="Descripcion"
+        [name]="formField.descripcion.name"
+        [form]="createCameraForm"
+        [formField]="formField" />
+
+    <app-form-input
+        type="text"
+        placeholder="fotografía principal"
+        label="Fotografía principal"
+        [name]="formField.fotografiaPrincipal.name"
+        [form]="createCameraForm"
+        [formField]="formField" />
+    
+    <app-secondary-images (secondaryPhotosChange)="onSecondaryPhotosChange($event)" />
+
+    <app-camera-checkbox (optionsChange)="onCheckboxOptionsChange($event)" />
+
+    <div *ngIf="createStatus?.loading; else notLoading">Cargando...</div>
+
+    <ng-template #notLoading>
+        <div *ngIf="createStatus?.error" [ngStyle]="{ color: 'var(--bs-form-invalid-color)' }">
+            {{ createStatus!.error }}
+        </div>
+        
+        <div class="d-flex align-items-center">
+            <app-form-button title="Confirmar" />
+            <a routerLink="/home" class="text-primary ms-2" style="cursor: pointer;">Cancelar</a>
+        </div>
+    </ng-template>
+</app-form>

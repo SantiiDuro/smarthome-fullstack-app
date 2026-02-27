@@ -1,0 +1,39 @@
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color:rgb(208, 229, 234);
+}
+
+.btn{
+    display: flex;
+    margin: 5px;
+}
+
+button, input, optgroup, select, textarea {
+    display: flex;
+    margin: 5px;
+}
+
+label, small{
+    display: flex;
+    margin: 10px;
+}
+
+div{
+    justify-content: center;
+    align-items: center;
+}
+
+.min-vh-30 {
+    min-height: 30vh;
+}
+
+.min-vh-0 {
+    min-height: 0vh;
+} 
+
+@media (max-height: 800px) {
+    .align-items-center {
+        align-items: flex-start !important;
+    }
+}

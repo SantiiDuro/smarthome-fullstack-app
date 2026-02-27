@@ -1,0 +1,70 @@
+<app-user-homes-dropdown
+        [(value)]="selectedHome"
+        [name]="homeName" />
+
+<div *ngIf="selectedHome">
+    <div class="d-flex gap-2 align-items-center w-100">
+        <app-button *ngIf="homePermissions?.permisoAgregarMiembros"
+            title="Agregar Miembro"
+            (onClick)="navigateToAssignMember()">
+        </app-button>
+
+        <app-button *ngIf="homePermissions?.permisoListarMiembros"
+            title="Listar Miembros"
+            (onClick)="navigateToListHomeMembers()">
+        </app-button>
+
+        <app-button *ngIf="homePermissions?.permisoAsociarDispositivos"
+            title="Agregar Dispositivo"
+            (onClick)="navigateToAssignDevice()">
+        </app-button>
+
+        <app-button *ngIf="homePermissions?.permisoListarDispositivos"
+            title="Listar Dispositivos"
+            (onClick)="navigateToListHomeDevices()">
+        </app-button>
+
+        <app-button *ngIf="homePermissions?.permisoModificarAlias"
+            title="Modificar Alias"
+            (onClick)="navigateToModifyHomeName()">
+        </app-button>
+    </div>
+
+    <div class="d-flex gap-2 align-items-center w-100">
+        <app-button *ngIf="homePermissions?.permisoAdministrarCuartos"
+            title="Crear Cuarto"
+            (onClick)="navigateToCreateRoom()">
+        </app-button>
+
+        <app-button *ngIf="homePermissions?.permisoListarDispositivos && homePermissions?.permisoAdministrarCuartos"
+            title="Asignar Dispositivo a Cuarto"
+            (onClick)="navigateToAssignDeviceRoom()">
+        </app-button>
+
+        <app-button *ngIf="homePermissions?.permisoModificarNombreDispositivos"
+            title="Modificar Nombre de Dispositivo"
+            (onClick)="navigateToModifyHomeDeviceName()">
+        </app-button>
+
+        <app-button *ngIf="homePermissions?.permisoAsociarDispositivos"
+            title="Conectar Dispositivo"
+            (onClick)="navigateToConnectHomeDevice()">
+        </app-button>
+
+        <app-button *ngIf="homePermissions?.permisoAsociarDispositivos"
+            title="Desonectar Dispositivo"
+            (onClick)="navigateToDisconnectHomeDevice()">
+        </app-button>
+    </div>
+
+    <div *ngIf="noPermissions()" class="text-center">
+        <p>No tienes permisos para realizar acciones sobre el hogar seleccionado</p>
+    </div>
+
+    <router-outlet />
+</div>
+
+<div class="d-flex align-items-center">
+    <a routerLink="/home" class="text-primary ms-2" style="cursor: pointer;">Volver</a>
+</div>
+

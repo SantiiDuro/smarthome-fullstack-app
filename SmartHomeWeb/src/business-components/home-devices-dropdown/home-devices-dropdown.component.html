@@ -1,0 +1,23 @@
+<div *ngIf="status.loading; else finishLoading">
+    Cargando dispositivos del hogar...
+</div>
+
+<ng-template #finishLoading>
+<div *ngIf="status.error; else showDropdown">
+    <p>{{ status.error }}</p>
+</div>
+
+<ng-template #showDropdown>
+    <app-form-dropdown
+    [options]="status.devices"
+    [(value)]="value"
+    (valueChange)="onValueChange($event)"
+    label="Dispositivos del Hogar"
+    placeholder="Selecciona un dispositivo"
+    emptyMessage="No hay dispositivos"
+    [name]="name"
+    [form]="form"
+    [formField]="formField">
+    </app-form-dropdown>
+</ng-template>
+</ng-template>

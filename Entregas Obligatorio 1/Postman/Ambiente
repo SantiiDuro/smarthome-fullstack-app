@@ -1,0 +1,39 @@
+{
+	"id": "8b2ac8c8-50f0-472d-8806-240e17de8194",
+	"name": "Ambiente",
+	"values": [
+		{
+			"key": "url",
+			"value": "https://localhost:7265",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "token",
+			"value": "66777695-7fd9-4783-a569-fe8c29771f79",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "emailAdmin",
+			"value": "admin@gmail.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "idDispositivoHogar",
+			"value": "16BE941B-36F3-491F-9790-A287AE2163A3",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "idHogar",
+			"value": "95886E20-6F45-40A5-8A3D-AC2866C87B35",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-10-08T22:02:36.672Z",
+	"_postman_exported_using": "Postman/11.15.0"
+}

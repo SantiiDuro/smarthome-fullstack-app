@@ -1,0 +1,1 @@
+export default { smartHomeApi: "http://localhost:5222" }

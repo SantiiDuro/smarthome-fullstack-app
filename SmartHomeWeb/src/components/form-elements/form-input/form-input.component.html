@@ -1,0 +1,8 @@
+<app-input
+  [type]="type"
+  [label]="label"
+  [placeholder]="placeholder"
+  [(value)]="value" />
+<small *ngIf="error" [ngStyle]="{ color: 'var(--bs-form-invalid-color)' }">
+  {{ error }}
+</small>

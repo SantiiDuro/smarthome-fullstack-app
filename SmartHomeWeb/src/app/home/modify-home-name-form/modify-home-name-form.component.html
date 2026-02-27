@@ -1,0 +1,22 @@
+<app-form [form]="modifyHomeNameForm" (onSubmit)="onSubmit()" title="Modificar Alias" containerClass="min-vh-30">
+    <app-form-input
+        type="text"
+        placeholder="alias"
+        label="Alias del hogar"
+        [name]="formField.alias.name"
+        [form]="modifyHomeNameForm"
+        [formField]="formField" />
+
+    <div *ngIf="modifyStatus?.loading; else notLoading">Cargando...</div>
+
+    <ng-template #notLoading>
+        <div *ngIf="modifyStatus?.error" [ngStyle]="{ color: 'var(--bs-form-invalid-color)' }">
+            {{ modifyStatus!.error }}
+        </div>
+        
+        <div class="d-flex align-items-center">
+            <app-form-button title="Confirmar" />
+            <a routerLink="/home/myHomes" class="text-primary ms-2" style="cursor: pointer;">Cancelar</a>
+        </div>
+    </ng-template>
+</app-form>

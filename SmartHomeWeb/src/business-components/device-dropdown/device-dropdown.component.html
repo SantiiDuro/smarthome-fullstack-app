@@ -1,0 +1,71 @@
+<div *ngIf="status.loading; else finishLoading">
+    Cargando dispositivos...
+</div>
+
+<ng-template #finishLoading>
+<div *ngIf="status.error; else showDropdown">
+    <p>{{ status.error }}</p>
+</div>
+
+<ng-template #showDropdown>
+    <app-form [form]="filterForm" (onSubmit)="onFilterSubmit()" containerClass="min-vh-30">
+        <app-form-input
+            type="text"
+            placeholder="Filtrar por nombre de dispositivo"
+            label="Nombre del dispositivo"
+            [form]="filterForm"
+            [name]="filterFormField.nombreDispositivo.name"
+            [formField]="filterFormField">
+        </app-form-input>
+        
+        <app-form-input
+            type="text"
+            placeholder="Filtrar por modelo del disposiitvo"
+            label="Modelo del Disposiitvo"
+            [form]="filterForm"
+            [name]="filterFormField.modelo.name"
+            [formField]="filterFormField">
+        </app-form-input>
+
+        <app-form-input
+            type="text"
+            placeholder="Filtrar por nombre de la empresa"
+            label="Nombre de la Empresa"
+            [form]="filterForm"
+            [name]="filterFormField.nombreEmpresa.name"
+            [formField]="filterFormField">
+        </app-form-input>
+
+        <app-form-input
+            type="text"
+            placeholder="Filtrar por el tipo de disposiitvo"
+            label="Tipo de Disposiitvo"
+            [form]="filterForm"
+            [name]="filterFormField.tipoDispositivo.name"
+            [formField]="filterFormField">
+        </app-form-input>
+        
+        <div class="d-flex justify-content-center"> 
+            <app-form-button title="Filtrar"></app-form-button>
+        </div>
+    </app-form>
+
+    <app-form-dropdown
+    [options]="status.devices"
+    [(value)]="value"
+    (valueChange)="onValueChange($event)"
+    label="Dispositivos"
+    placeholder="Selecciona un dispositivo"
+    emptyMessage="No hay dispositivos"
+    [name]="name"
+    [form]="form"
+    [formField]="formField">
+    </app-form-dropdown>
+
+    <div class="d-flex align-items-center justify-content-around">
+        <button type="button" class="btn btn-secondary" (click)="goToPreviousPage()" [disabled]="currentPage === 1">Anterior</button>
+        <span>Página {{ currentPage }} de {{ totalPages }}</span>
+        <button type="button" class="btn btn-secondary" (click)="goToNextPage()" [disabled]="totalPages <= currentPage">Siguiente</button>
+    </div>
+</ng-template>
+</ng-template>

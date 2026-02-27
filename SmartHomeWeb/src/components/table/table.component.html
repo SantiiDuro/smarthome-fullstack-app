@@ -1,0 +1,24 @@
+<div class="text-center my-4">
+  <h1 *ngIf="title">{{ title }}</h1>
+</div>
+
+<div class="d-flex justify-content-center my-4">
+  <div *ngIf="items && items.length > 0; else noItems" class="bg-secondary p-1 rounded-3" style="width: 90%;">
+    <table class="table table-hover table-sm text-center mb-0">
+      <thead>
+        <tr>
+          <th *ngFor="let header of tableHeaders">{{ header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td *ngFor="let column of tableColumns">{{ item[column] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noItems>
+    <p class="text-muted text-center">{{ emptyMessage }}</p>
+  </ng-template>
+</div>

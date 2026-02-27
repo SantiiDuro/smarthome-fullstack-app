@@ -1,0 +1,12 @@
+using SmartHome.LogicaNegocio.Usuarios.Entidades;
+
+namespace SmartHome.LogicaNegocio.Hogares.Estrategia;
+
+public class PermisoListarDispositivoEstrategia : IPermisoEstrategia
+{
+    public bool TienePermiso(Usuario usuario, string idHogar, IHogarLogica logicaHogar)
+    {
+        return logicaHogar.EsDueñoHogar(usuario, idHogar) ||
+               logicaHogar.TienePermisoListarDispositivos(usuario, idHogar);
+    }
+}

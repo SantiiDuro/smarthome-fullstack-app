@@ -1,0 +1,23 @@
+<div *ngIf="status.loading; else finishLoading">
+    Cargando validadores...
+</div>
+
+<ng-template #finishLoading>
+<div *ngIf="status.error; else showDropdown">
+    <p>{{ status.error }}</p>
+</div>
+
+<ng-template #showDropdown>
+    <app-form-dropdown
+    [options]="status.validators"
+    [(value)]="value"
+    (valueChange)="onValueChange($event)"
+    label="Validador de modelo"
+    placeholder="Selecciona un validador"
+    emptyMessage="No hay validadores"
+    [name]="name"
+    [form]="form"
+    [formField]="formField">
+    </app-form-dropdown>
+</ng-template>
+</ng-template>

@@ -1,0 +1,44 @@
+<app-form [form]="createCompanyForm" (onSubmit)="onSubmit($event)" title="Crear Empresa">
+    <app-form-input
+        type="text"
+        placeholder="nombre"
+        label="Nombre"
+        [name]="formField.nombre.name"
+        [form]="createCompanyForm"
+        [formField]="formField" />
+
+    <app-form-input
+        type="text"
+        placeholder="rut"
+        label="Rut"
+        [name]="formField.rut.name"
+        [form]="createCompanyForm"
+        [formField]="formField" />
+
+    <app-form-input
+        type="text"
+        placeholder="logotipo"
+        label="Logotipo"
+        [name]="formField.logotipo.name"
+        [form]="createCompanyForm"
+        [formField]="formField" />
+
+    <app-validators-dropdown
+        [(value)]="selectedValidator"
+        [name]="formField.validador.name"
+        [form]="createCompanyForm"
+        [formField]="formField" />
+
+    <div *ngIf="createStatus?.loading; else notLoading">Cargando...</div>
+
+    <ng-template #notLoading>
+        <div *ngIf="createStatus?.error" [ngStyle]="{ color: 'var(--bs-form-invalid-color)' }">
+            {{ createStatus!.error }}
+        </div>
+        
+        <div class="d-flex align-items-center">
+            <app-form-button title="Confirmar" />
+            <a routerLink="/home" class="text-primary ms-2" style="cursor: pointer;">Cancelar</a>
+        </div>
+    </ng-template>
+</app-form>
